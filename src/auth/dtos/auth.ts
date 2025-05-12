@@ -4,7 +4,7 @@ export interface SignUpDTO{
     password: string;
 }
 
-export interface SingInDTO{
+export interface SignInDTO{
     email: string;
     password: string;
 }
