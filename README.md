@@ -12,17 +12,17 @@ Construir uma API simples com autenticação, registro e login de usuários, uti
 - [TypeScript](https://www.typescriptlang.org/)
 - [JWT (JSON Web Tokens)](https://jwt.io/)
 - [bcryptjs](https://www.npmjs.com/package/bcryptjs)
-- [PostgreSQL] (ou substitua pelo que usou)
+- [PostgreSQL] 
 - [Prisma ORM](https://www.prisma.io/)
 - Insomnia/Postman para testes
 
 ## ⚙️ Funcionalidades
 
-- Registro de usuário (com hash da senha)
+- Registro de usuário
 - Login com geração de token JWT
 - Proteção de rotas com autenticação
 - Validação com DTOs
-- Estrutura modular (controller, service, dto)
+- Estrutura modular(controller, service, dto)
 
 ## 📁 Estrutura do Projeto
 
