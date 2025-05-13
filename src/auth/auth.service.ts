@@ -3,9 +3,11 @@ import { Injectable, UnauthorizedException } from '@nestjs/common';
 import { SignInDTO, SignUpDTO } from './dtos/auth';
 import { PrismaService } from 'src/prisma/prisma.service';
 import * as bcrypt from 'bcrypt';
+import { JwtService } from '@nestjs/jwt';
+
 @Injectable()
 export class AuthService {
-    constructor(private prismaService: PrismaService){}
+    constructor(private prismaService: PrismaService,private jwtService: JwtService){}
     async signup(data: SignUpDTO){
         const userAlreadyExist = await this.prismaService.user.findUnique({
             where: {
@@ -43,6 +45,12 @@ export class AuthService {
             throw new UnauthorizedException('Invalid credentials');
         }
         
-        return 'signin';
+        const accessToken = await this.jwtService.signAsync({
+            id:user.id,
+            name:user.name,
+            email:user.email,
+        })
+
+        return accessToken;
     }
 }
