@@ -157,7 +157,7 @@ const config = {
     "db": {
       "url": {
         "fromEnvVar": "DATABASE_URL",
-        "value": "postgresql://postgres:210922@localhost:5432/auth?schema=public"
+        "value": "postgresql://postgres:210922@localhost:5432/auth"
       }
     }
   },
