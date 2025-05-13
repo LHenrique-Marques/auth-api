@@ -15,11 +15,10 @@ export class AuthService {
             throw new UnauthorizedException('User already exists');
         }
         const user = await this.prismaService.user.create({data});
-        console.log({data})
         return {
             id:user.id,
             email:user.email,
-            name:user
+            name:user.name,
         };
     }
     async signin(data: SignInDTO){
