@@ -21,7 +21,7 @@ export class AuthGuard implements CanActivate{
         }catch(error){
             throw new UnauthorizedException()
         }
-        return true
+        return true;
     }
     private extractTokenFromHeader(request: Request): string | undefined{
         const [type, token] = request.headers['authorization']?.split('') ?? [];
