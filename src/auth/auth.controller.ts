@@ -8,8 +8,7 @@ export class AuthController {
 
     @Post('signup')
     async signup(@Body() body: SignUpDTO){
-        await this.authService.signup(body);
-        return body;
+        return this.authService.signup(body);
     }
     @Post('signin')
     async signin(@Body() body: SignInDTO){
