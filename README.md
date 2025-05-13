@@ -1,5 +1,5 @@
 
-# 🔐 Auth Api
+# 🔐 UserAccessManager
 
 Este é um projeto de API de autenticação utilizando **NestJS**, **Prisma** e **JWT**, com banco de dados **PostgreSQL**. O objetivo é fornecer uma base sólida e segura para cadastro e login de usuários, utilizando boas práticas modernas.
 
