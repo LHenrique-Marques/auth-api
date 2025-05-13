@@ -18,7 +18,10 @@ export class AuthService {
 
         const hashedPassword = await bcrypt.hash(data.password,10);
 
-        const user = await this.prismaService.user.create({data});
+        const user = await this.prismaService.user.create({data: {
+            ...data,
+            password: hashedPassword,
+        }});
         return {
             id:user.id,
             email:user.email,
@@ -26,7 +29,20 @@ export class AuthService {
         };
     }
     async signin(data: SignInDTO){
-        console.log({data})
+        const user = await this.prismaService.user.findUnique({
+            where:{
+                email:data.email,
+            }
+        })
+        if(!user){
+            throw new UnauthorizedException('Invalid credentials');
+        }
+        const passwordMatch = await bcrypt.compare(data.password, user.password);
+
+        if(!passwordMatch){
+            throw new UnauthorizedException('Invalid credentials');
+        }
+        
         return 'signin';
     }
 }
