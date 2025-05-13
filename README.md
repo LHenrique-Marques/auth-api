@@ -8,7 +8,7 @@ API de autenticação simples com NestJS, Prisma e JWT, desenvolvida para estudo
 - **NestJS**
 - **Prisma ORM**
 - **JWT (JSON Web Token)**
-- **MySQL** (ou outro banco relacional configurado no Prisma)
+- **Postgres**
 
 ## 📁 Estrutura do Projeto
 
