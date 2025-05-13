@@ -67,7 +67,7 @@ npm run start:dev
 
 - `POST /auth/signup` - Cadastro de usuário
 - `POST /auth/login` - Login e geração de token
-- `GET /profile` - Rota protegida que retorna dados do usuário autenticado (com JWT)
+- `GET /auth/me` - Rota protegida que retorna dados do usuário autenticado (com JWT)
 
 ## 📚 Créditos
 
