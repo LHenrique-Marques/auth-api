@@ -18,7 +18,7 @@ src/
 │   ├── auth.controller.ts
 │   ├── auth.module.ts
 │   ├── auth.service.ts
-│   └── jwt.strategy.ts
+│   └── constants.ts
 ├── users/
 │   ├── users.service.ts
 │   ├── users.module.ts
