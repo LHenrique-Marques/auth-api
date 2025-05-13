@@ -4,11 +4,11 @@ import { jwtConstants } from "./constants";
 
 @Injectable()
 export class AuthGuard implements CanActivate{
-    async canActivate(context: ExecutionContext): boolean{
+    async canActivate(context: ExecutionContext): Promise<boolean>{
         const request = context.switchToHttp().getRequest();
         const token = this.extractTokenFromHeader(request);
         if(!token){
-            throw new UnauthorizedException('Access token not found');
+            throw new UnauthorizedException();
         }
 
         try{
@@ -18,8 +18,9 @@ export class AuthGuard implements CanActivate{
 
             request['user'] = payload;
         }catch(error){
-            throw new UnauthorizedException('Invalid access token')
+            throw new UnauthorizedException()
         }
+        return true
     }
     private extractTokenFromHeader(request: Request): string | undefined{
         const [type, token] = request.headers['authorization']?.split('') ?? [];
